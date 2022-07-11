@@ -172,3 +172,4 @@ in conclusion we can see that most accidents happen in crowded areas, Fatal acci
 This is my first time using python for data science and it was really fun and educating,
 
 thanks for reading my analysis!
+
