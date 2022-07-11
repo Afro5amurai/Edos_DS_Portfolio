@@ -49,71 +49,125 @@ Casualties statistics:
 
 ## Correlation Table
 
+I decided to merge all the data to get an overview of how certain criteria correlates to each other 
+<br> <br>
+To make the chart readable i decided to pick three parameters as my benchmark,
+
+accident severity number of casualties casualty severity
+
+and decided to drop some of the data that was least correlated to the benchmark or didn't make logical sense for it to be correlated.
+<br> <br>
+
+![alt text](https://github.com/Afro5amurai/Edos_Portfolio/blob/main/images/Correlation_table.png
+)
+<br> <br>
+After getting a general picture of how our data looks we want to see which craiterias are valid, relevent to our analysis and how are they gauged.
+<br> <br>
 
 
+<hr>
+<br> <br>
+
+## ACCIDENTS & CASUALTIES
+In this section we'll want to see how accidents and casualties are distributed over certain parameters
+
+The guidelines i used for selecting the parameters for the analysis are from the correlations from the heatmap and logical correlations that I wanted to highlight in the conclusion
+
+I decided to focus more on the fatal accidents as they correlates more strongly to number of casualties and severity of casualties.
+
+The parameters I see as the most relevent are:
+
+1. accident severity
+2. number of casualties
+3. casualty severity
+As i believe diving deep into these parameters will allow the UK ministy to achieve best results in metigating car accidents and deaths.
+
+Accident severity and number of casualties are correlated to weather conditions but we dont have a description on how to gauge weather in the context csv so we'll use light conditions instead as it correlates too but not as strongly and logically corelated to car accidents.
+
+Accident Severity: Accident Severity correlates with the weather conditions , did officer arrive at scene, gender of driver and casualty severity parameters As I see it, an officer will arrive to the scene usually if the accident is fatal, therefore the correlation so i decided to not further focus on this parameter. casualty severity also correlates positivly as it is logically tied to accident severity.
+
+Number of causalties: Accident Severity correlates with the speed limit and weather condition parameters.
+
+Casualty Severity: Accident Severity correlates with the gender of driver and age of the driver , did officer arrive at scene and gender parameters again, we won't use the officer arrived parameter for the same resoning.
+
+I also decided to add yearly monthly and daily data to get a meaningful idea of how the trends look.
+<br> <br>
+
+![alt text](https://github.com/Afro5amurai/Edos_Portfolio/blob/main/images/graph1.png
+)
 
 
-### CODE BLOCK 1 IMPORTS
+![alt text](https://github.com/Afro5amurai/Edos_Portfolio/blob/main/images/g2.png
+)
+<br> <br>
 
-import pandas as pd
+As we can see most accidents are not fatal or serious
+<br> <br>
 
-import numpy as np
+## Periodic data 
+<br> <br>
 
-import seaborn as sns 
-
-import matplotlib.pyplot as plt
-
-import plotly.express as px
-
-import plotly.graph_objects as go
-
-import folium
-
-from folium.plugins import HeatMap
-
-### CODE BLOCK 2
-###### Reading the data and understanding how my database looks, arranging the data so it fits my desired format 
-###### and clearing null data, in addition sheding light on data provided in numbers through the contexCSV file.
-
-accidents_data = pd.read_csv('data/Accidents0515.csv',index_col='Accident_Index')
-
-casualties_data = pd.read_csv('data/Casualties0515.csv',on_bad_lines = 'skip',index_col='Accident_Index')
-
-vehicles_data = pd.read_csv('data/Vehicles0515.csv',on_bad_lines = 'skip',index_col='Accident_Index')
+![alt text](https://github.com/Afro5amurai/Edos_Portfolio/blob/main/images/g3.png
+)
+<br> 
+Friday is the day in which the biggest amount of accidents happened in my opinion because of the increased amount of vehicles on the roads on fridays and maybe drivers driving drunk after hanging out on friday eve.
+<br> <br>
 
 
-accidents_data = accidents_data.dropna(how = "all")
+![alt text](https://github.com/Afro5amurai/Edos_Portfolio/blob/main/images/g4.png
+)
+<br> 
+It looks like most of the months are equal when it comes to car accidents and severity, it seems like the summer months(6-10) have the most car accidents occurrences.
+<br> <br>
 
-casualties_data = casualties_data.dropna(how = "all")
+![alt text](https://github.com/Afro5amurai/Edos_Portfolio/blob/main/images/g5.png
+)
+<br> 
+we can see a clear, positive trend here, car accidents are decreasing year over year for the most part.
 
-vehicles_data = vehicles_data.dropna(how = "all")
-
-
-accidents_data['Date'] = pd.to_datetime(accidents_data['Date'], infer_datetime_format=True)
-
-accidents_data['Year']= accidents_data['Date'].dt.year
-
-accidents_data['Month']=accidents_data['Date'].dt.month
-
-accidents_data['Day']=accidents_data['Date'].dt.day
-
-accidents_data.drop('Date' , axis = 1, inplace = True)
+<br> <br>
 
 
-accidents_data_int = accidents_data
+![alt text](https://github.com/Afro5amurai/Edos_Portfolio/blob/main/images/g6.png
+) 
+<br> 
 
-casualties_data_int = casualties_data
+We can obviously see that the number of casualties goes up as the speed limit raises which correlates nicely to the data. we can also see that most of the casualties happen at daylight but a big chunk does happen at no lightning conditions.
 
-vehicles_data_int = vehicles_data
+<br> <br>
 
+![alt text](https://github.com/Afro5amurai/Edos_Portfolio/blob/main/images/g7.png
+)
+<br> 
 
-accidents_data_int = accidents_data_int.replace({'Accident_Severity': {1: 'Fatal accident', 2: 'Serious accident', 3:'Slight accident'}})
+Unfortunatly unknown gender makes a big chunk of the data BUT we can see a big spike in Casualty severity around the age of 30
 
-accidents_data_int = accidents_data_int.replace({"Day_of_Week":{ 1:"Sunday" , 2:"Monday",3:"Tuesday" , 4:"Wednsday", 5:"Thursday", 6:"Friday", 7:"Saturday"}})
+<br> <br>
 
-vehicles_data_int = vehicles_data_int.replace({'Sex_of_Driver': {-1: 'Missing gender data',1: 'Male', 2: 'Female', 3:'Unknown gender'}})
+![alt text](https://github.com/Afro5amurai/Edos_Portfolio/blob/main/images/g8.png
+)
+<br> 
 
-casualties_data_int = casualties_data_int.replace({'Casualty_Severity': {1: 'Fatal wound', 2: 'Serious wound', 3:'Slight wound'}})
+We can see that mostly men do severe accidents with lightning conditions distributing pretty evenly.
+<br> 
 
+<hr>
+<br>
 
-## code block 3
+### Accident Heatmap
+At last i decided to add a neat feature that shows where most accidents occured. we can see that most accidents occured in crowded areas and main cities which is logical because these cities are the most crowded places usually.
+<br> <br>
+
+![alt text](https://github.com/Afro5amurai/Edos_Portfolio/blob/main/images/Heat_map.png
+)
+<br> <br>
+
+## CONCLUSION
+in conclusion we can see that most accidents happen in crowded areas, Fatal accidents are preformed by men more than by women around the age of 30 in high speed limit areas. If I could give some tips for the UK government I would suggest:
+
+1. A campaign targeting men in their 30's that would encourage them to drive slower in high speed limit areas
+2. Put up signs for slowing down in highways.
+3. Put up more streetlights as we can see a big chunk of the accidents happen in no light condition
+This is my first time using python for data science and it was really fun and educating,
+
+thanks for reading my analysis!
