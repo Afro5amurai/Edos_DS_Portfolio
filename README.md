@@ -25,6 +25,34 @@ Sfter seeing that all fields are pretty much numeric even though it doesn't fit 
 Approach to displaying data
 After getting an idea of what i'm working with i decided to plot a heatmap of the accident data file to see what correlates best and to figure out what fields should i do additional analysis on.
 
+## analysis
+### key metrics
+<br>
+I decided to show some key data as key matrics, this is data that i viewed as easiest to digest in numeric form.
+<br>
+<br>
+<br>
+
+Average number of accidents between 2005-2015:
+#### Yearly: 161877.55
+#### Monthly: 13489.80
+#### Daily: 443.50.
+
+<br>
+<br>
+
+Casualties statistics:
+#### 1.35 casualties per accident
+#### average casualty age 34.35
+#### average vehicle age was 4.84
+<hr>
+
+## Correlation Table
+
+
+
+
+
 ### CODE BLOCK 1 IMPORTS
 
 import pandas as pd
@@ -44,8 +72,8 @@ import folium
 from folium.plugins import HeatMap
 
 ### CODE BLOCK 2
-Reading the data and understanding how my database looks, arranging the data so it fits my desired format 
-and clearing null data, in addition sheding light on data provided in numbers through the contexCSV file.
+###### Reading the data and understanding how my database looks, arranging the data so it fits my desired format 
+###### and clearing null data, in addition sheding light on data provided in numbers through the contexCSV file.
 
 accidents_data = pd.read_csv('data/Accidents0515.csv',index_col='Accident_Index')
 
@@ -86,3 +114,6 @@ accidents_data_int = accidents_data_int.replace({"Day_of_Week":{ 1:"Sunday" , 2:
 vehicles_data_int = vehicles_data_int.replace({'Sex_of_Driver': {-1: 'Missing gender data',1: 'Male', 2: 'Female', 3:'Unknown gender'}})
 
 casualties_data_int = casualties_data_int.replace({'Casualty_Severity': {1: 'Fatal wound', 2: 'Serious wound', 3:'Slight wound'}})
+
+
+## code block 3
