@@ -25,8 +25,8 @@ Sfter seeing that all fields are pretty much numeric even though it doesn't fit 
 Approach to displaying data
 After getting an idea of what i'm working with i decided to plot a heatmap of the accident data file to see what correlates best and to figure out what fields should i do additional analysis on.
 
-## analysis
-### key metrics
+## Analysis
+### Key metrics
 <br>
 I decided to show some key data as key matrics, this is data that i viewed as easiest to digest in numeric form.
 <br>
@@ -127,7 +127,8 @@ we can see a clear, positive trend here, car accidents are decreasing year over 
 
 <br> <br>
 
-
+## Main comparisons
+<br><br>
 ![alt text](https://github.com/Afro5amurai/Edos_Portfolio/blob/main/images/g6.png
 ) 
 <br> 
