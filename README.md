@@ -1,5 +1,3 @@
-# Edos_Portfolio
-Example data science project
 Unforunatly the data is too big to include in the repo
 <br>
 To get the data used analysis download the data from
