@@ -175,4 +175,4 @@ This is my first time using python for data science and it was really fun and ed
 
 thanks for reading my analysis!
 
-###### note: unfortunatly I didn't found (yet) a solution so show the the heatmap and graphs embedded in HTML so i uploaded pictures, but if you run the code you can see it's full features, and the graph's features too :)
+###### Note: Unfortunatly the last heatmaps HTML interactive file is too big to include in the repo so i uploaded an image.
