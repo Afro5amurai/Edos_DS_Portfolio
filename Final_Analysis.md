@@ -170,6 +170,7 @@ in conclusion we can see that most accidents happen in crowded areas, Fatal acci
 1. A campaign targeting men in their 30's that would encourage them to drive slower in high speed limit areas
 2. Put up signs for slowing down in highways.
 3. Put up more streetlights as we can see a big chunk of the accidents happen in no light condition
+<br><br>
 This is my first time using python for data science and it was really fun and educating,
 
 thanks for reading my analysis!
