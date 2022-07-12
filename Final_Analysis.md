@@ -156,7 +156,8 @@ We can see that mostly men do severe accidents with lightning conditions distrib
 <br>
 
 ### Accident Heatmap
-At last i decided to add a neat feature that shows where most accidents occured. we can see that most accidents occured in crowded areas and main cities which is logical because these cities are the most crowded places usually.
+Below is a Heatmap that shows where most accidents occured. we can see that most accidents occured in crowded areas and main cities which is logical because these cities are the most crowded places usually.
+
 <br> <br>
 
 ![alt text](https://github.com/Afro5amurai/Edos_Portfolio/blob/main/images/Heat_map.png
@@ -173,3 +174,4 @@ This is my first time using python for data science and it was really fun and ed
 
 thanks for reading my analysis!
 
+###### note: unfortunatly I didn't found (yet) a solution so show the the heatmap and graphs embedded in HTML so i uploaded pictures, but if you run the code you can see it's full features, and the graph's features too :)
